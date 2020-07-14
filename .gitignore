@@ -112,7 +112,7 @@ venv/
 ENV/
 env.bak/
 venv.bak/
-sms-newword/
+sms-notify-venv/
 
 # Spyder project settings
 .spyderproject
