@@ -16,7 +16,7 @@ def job():
     send_sms(data)
 
 
-schedule.every().day.at("19:00").do(job)
+schedule.every().day.at("06:00").do(job)
 
 while True:
     schedule.run_pending()
