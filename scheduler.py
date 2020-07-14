@@ -1,7 +1,7 @@
 from datetime import date
 import time
 import schedule
-from newword.app import get_word_of_the_day, send_sms
+from app import get_word_of_the_day, send_sms
 
 
 current_date = date.today()
