@@ -16,8 +16,8 @@ def job():
     send_sms(data)
 
 
-schedule.every().day.at("06:00").do(job)
-
-while True:
-    schedule.run_pending()
-    time.sleep(1)
+if __name__ == "__main__":
+    schedule.every().day.at("12:27").do(job)
+    while True:
+        schedule.run_pending()
+        time.sleep(1)
