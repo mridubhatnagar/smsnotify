@@ -1,5 +1,6 @@
 import os
 import json
+from datetime import date
 import requests
 from dotenv import load_dotenv
 from twilio.rest import Client
@@ -41,3 +42,9 @@ def send_sms(response_data):
         status_callback='https://demo.twilio.com/welcome/voice/',
         to=RECEIVER_PHONE_NUMBER
     )
+
+
+if __name__ == "__main__":
+    current_date = date.today()
+    data = get_word_of_the_day(current_date)
+    send_sms(data)
