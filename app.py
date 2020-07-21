@@ -28,6 +28,7 @@ def get_word_of_the_day(current_date):
         response_data["word"] = api_response["word"]
         for definition in api_response["definitions"]:
             response_data["definition"] = definition
+            break
     return response_data
 
 
