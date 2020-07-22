@@ -27,7 +27,7 @@ def get_word_of_the_day(current_date):
     if response.status_code == 200:
         response_data["word"] = api_response["word"]
         for definition in api_response["definitions"]:
-            response_data["definition"] = definition
+            response_data["definition"] = definition["text"]
             break
     return response_data
 
@@ -36,7 +36,7 @@ def send_sms(response_data):
     """
     Send SMS notification with New word
     """
-    body = str(response_data["word"]) + "\n\n" + str(response_data["definition"]["text"])
+    body = str(response_data["word"]) + "\n\n" + str(response_data["definition"])
     message = client.messages.create(
         body=body,
         from_=TWILIO_PHONE_NUMBER,
