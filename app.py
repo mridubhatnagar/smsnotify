@@ -32,7 +32,7 @@ def get_word_of_the_day(current_date):
                 break
     else:
         response_data["word"] = "mesmerizing"
-        response_data["meaning"] = "capturing one's attention as if by magic"
+        response_data["definition"] = "capturing one's attention as if by magic"
     return response_data
 
 
