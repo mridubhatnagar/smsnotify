@@ -20,15 +20,19 @@ def get_word_of_the_day(current_date):
     Fetch word of the day from Wordnik API
     """
     response_data = {"word": "Sorry, No new word today", "definition": "No definition available"}
-    url = f"https://api.wordnik.com/v4/words.json/wordOfTheDay?date={current_date}" \
-          f"&api_key={WORDNIK_API_KEY}"
-    response = requests.get(url)
-    api_response = json.loads(response.text)
-    if response.status_code == 200:
-        response_data["word"] = api_response["word"]
-        for definition in api_response["definitions"]:
-            response_data["definition"] = definition["text"]
-            break
+    if WORDNIK_API_KEY:
+        url = f"https://api.wordnik.com/v4/words.json/wordOfTheDay?date={current_date}" \
+              f"&api_key={WORDNIK_API_KEY}"
+        response = requests.get(url)
+        api_response = json.loads(response.text)
+        if response.status_code == 200:
+            response_data["word"] = api_response["word"]
+            for definition in api_response["definitions"]:
+                response_data["definition"] = definition["text"]
+                break
+    else:
+        response_data["word"] = "mesmerizing"
+        response_data["meaning"] = "capturing one's attention as if by magic"
     return response_data
 
 
