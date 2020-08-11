@@ -44,7 +44,6 @@ def send_sms(response_data):
     message = client.messages.create(
         body=body,
         from_=TWILIO_PHONE_NUMBER,
-        status_callback='https://demo.twilio.com/welcome/sms/reply',
         to=RECEIVER_PHONE_NUMBER
     )
 
